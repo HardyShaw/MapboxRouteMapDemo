@@ -16,15 +16,18 @@ end
 
 target 'mapdemo' do
   config = use_native_modules!
-
+  pod 'MapboxMaps', '10.19.0'
   use_react_native!(
     :path => config[:reactNativePath],
     # An absolute path to your application root.
     :app_path => "#{Pod::Config.instance.installation_root}/.."
   )
-
+  pre_install do |installer|
+    $RNMapboxMaps.pre_install(installer)
+  end
   post_install do |installer|
     # https://github.com/facebook/react-native/blob/main/packages/react-native/scripts/react_native_pods.rb#L197-L202
+    $RNMapboxMaps.post_install(installer)
     react_native_post_install(
       installer,
       config[:reactNativePath],
