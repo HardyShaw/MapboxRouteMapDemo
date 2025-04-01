@@ -4,7 +4,6 @@
  *
  * @format
  */
-
 import React from 'react';
 import {SafeAreaView, StyleSheet, View} from 'react-native';
 import Mapbox from '@rnmapbox/maps';
