@@ -1,17 +1,27 @@
 buildscript {
     ext {
+        RNMapboxMapsImpl = "mapbox"
 
-        RNMapboxMapsLibs = { // optional - only required if you want to customize it
-            implementation 'com.mapbox.maps:android:10.6.0'
-            implementation 'com.mapbox.mapboxsdk:mapbox-sdk-turf:5.4.1'
+        if (System.getenv('CI_MAP_IMPL').equals('mapbox')) {
+            RNMapboxMapsImpl = "mapbox"
+            kotlinVersion = '1.6.21'
+        } else if (System.getenv('CI_MAP_IMPL').equals('mapbox11')) {
+            RNMapboxMapsVersion = '11.4.1'
+            RNMapboxMapsImpl = "mapbox"
+        } else if (project.hasProperty('RNMBX11') && project.getProperty('RNMBX11').toBoolean()) {
+            RNMapboxMapsVersion = '11.4.1'
         }
+
+        // RNMapboxMapsLibs = { // optional - only required if you want to customize it
+        //     implementation 'com.mapbox.maps:android:10.6.0'
+        //     implementation 'com.mapbox.mapboxsdk:mapbox-sdk-turf:5.4.1'
+        // }
         buildToolsVersion = "35.0.0"
         minSdkVersion = 24
         compileSdkVersion = 35
         targetSdkVersion = 35
         ndkVersion = "27.1.12297006"
         kotlinVersion = "2.0.21"
-        RNMapboxMapsVersion = '11.4.1'
 
     }
     repositories {
@@ -19,7 +29,7 @@ buildscript {
         mavenCentral()
     }
     dependencies {
-        classpath("com.android.tools.build:gradle:8.8.1")
+        classpath("com.android.tools.build:gradle")
         classpath("com.facebook.react:react-native-gradle-plugin")
         classpath("org.jetbrains.kotlin:kotlin-gradle-plugin:2.0.21")
     }

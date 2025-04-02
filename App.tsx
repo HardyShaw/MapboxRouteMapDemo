@@ -8,8 +8,8 @@ import React from 'react';
 import {SafeAreaView, StyleSheet, View} from 'react-native';
 import Mapbox from '@rnmapbox/maps';
 import MapScreen from './src/screen/MapScreen';
-
-Mapbox.setAccessToken('PUBLIC ACCESS TOKEN');
+import {PUBLIC_KEY} from '@env';
+Mapbox.setAccessToken(`${PUBLIC_KEY}`);
 
 function App(): React.JSX.Element {
   return (

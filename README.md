@@ -21,6 +21,8 @@ yarn start
 
 ## Step 2: Build and run your app
 
+add your MAP box SECRETE_KEY in android/gradle.properties and PUBLIC_KEY in ios/mapdemo/Info.plist
+
 With Metro running, open a new terminal window/pane from the root of your React Native project, and use one of the following commands to build and run your Android or iOS app:
 
 ### Android
@@ -95,7 +97,8 @@ To learn more about React Native, take a look at the following resources:
 - [Getting Started](https://reactnative.dev/docs/environment-setup) - an **overview** of React Native and how setup your environment.
 - [Learn the Basics](https://reactnative.dev/docs/getting-started) - a **guided tour** of the React Native **basics**.
 - [Blog](https://reactnative.dev/blog) - read the latest official React Native **Blog** posts.
-- [`@facebook/react-native`](https://github.com/facebook/react-native) - the Open Source; GitHub **repository** for React Native.
-=======
+- # [`@facebook/react-native`](https://github.com/facebook/react-native) - the Open Source; GitHub **repository** for React Native.
+
 # MapboxRouteMapDemo
->>>>>>> 234d201c0910117275685d2a2558e258644e601b
+
+> > > > > > > 234d201c0910117275685d2a2558e258644e601b
