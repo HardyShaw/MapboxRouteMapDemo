@@ -14,7 +14,7 @@ import MapboxGL from '@rnmapbox/maps';
 import GetLocation from 'react-native-get-location';
 import Autocomplete from 'react-native-autocomplete-input';
 import {PUBLIC_KEY} from '@env';
-import {Images} from '../assests/images'; // Verify this path is correct
+import {Images} from '../assests/images';
 
 const MAPBOX_ACCESS_TOKEN = `${PUBLIC_KEY}`;
 
@@ -199,12 +199,12 @@ const NavigationApp: React.FC = () => {
           cameraRef.current.setCamera({
             centerCoordinate: coords,
             bearing: heading,
-            zoomLevel: 16,
+            zoomLevel: 18,
             animationDuration: 500,
           });
         }
       }
-    }, 2000);
+    }, 500);
   }, [isMapInteracting, updateNavigation]);
 
   const handleStepChange = useCallback(
@@ -226,7 +226,7 @@ const NavigationApp: React.FC = () => {
       cameraRef.current.setCamera({
         centerCoordinate: stepCoords,
         bearing: currentHeading,
-        zoomLevel: 15,
+        zoomLevel: 18,
         animationDuration: 1000,
       });
 
@@ -261,7 +261,7 @@ const NavigationApp: React.FC = () => {
       cameraRef.current.setCamera({
         centerCoordinate: locationData.coords,
         bearing: locationData.heading,
-        zoomLevel: 12,
+        zoomLevel: 16,
         animationDuration: 1000,
       });
     }
@@ -292,7 +292,7 @@ const NavigationApp: React.FC = () => {
       cameraRef.current.setCamera({
         centerCoordinate: currentLocation,
         bearing: currentHeading,
-        zoomLevel: 16,
+        zoomLevel: 18,
         animationDuration: 1000,
       });
     }
@@ -412,7 +412,7 @@ const NavigationApp: React.FC = () => {
             <MapboxGL.Camera
               ref={cameraRef}
               centerCoordinate={currentLocation || [-1224194, 37.7749]}
-              zoomLevel={12}
+              zoomLevel={isNavigating ? 17 : 12}
               bearing={currentHeading}
             />
             {currentLocation && (
